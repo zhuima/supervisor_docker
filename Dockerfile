@@ -17,9 +17,9 @@
       
 #tomcat
     ADD apache-tomcat-7.0.41.tar.gz /usr/local/src/
+    COPY jdk-7u80-linux-x64.rpm /usr/local/src/
     WORKDIR /usr/local/src/
-    RUN wget https://mirror.its.sfu.ca/mirror/CentOS-Third-Party/NSG/common/x86_64/jdk-7u80-linux-x64.rpm && \
-        rpm -ivh jdk-7u80-linux-x64.rpm
+    RUN rpm -ivh jdk-7u80-linux-x64.rpm
     ENV JAVA_HOME /usr/java/jdk1.7.0_80
     ENV PATH $PATH:$JAVA_HOME/bin
     ENV CLASSPATH .:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
